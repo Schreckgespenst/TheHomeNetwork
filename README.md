@@ -75,4 +75,47 @@ execute the script
        sudo ./pihole.sh
  add to heimdall, go to http://192.168.1.10/admin/ and login
  
- 
+11. Mounting a disk
+
+Create a directory in the /mnt directory:
+
+sudo mkdir /mnt/1
+
+We change the access rights to the directory. Only root and only read and write.
+
+sudo chmod -R 660 /mnt/1
+
+We mount:
+
+sudo mount /dev/sda2 /mnt/1
+
+To mount the disk automatically when the system boots, edit the /etc/fstab file. Open with any text editor, for example, nano:
+
+sudo nano /etc/fstab
+
+At the very end of the file, insert the line:
+
+/dev/sda2 /mnt/1 ext4 defaults 0 0
+
+Save the file.
+
+12. Setting up samba
+We can install the packages that we require to setup Samba by running the following command.
+      sudo apt-get install samba samba-common-bin
+      
+Now we can share this folder using the Samba software. To do this, we need to modify the samba config file.
+The “smb.conf” configuration file is where you will store all your settings for your shares.
+We can begin modifying the config file by running the command below.
+
+      sudo nano /etc/samba/smb.conf
+      sudo apt install -y samba samba-common-bin smbclient cisf-utils
+      
+Within this file, add the following to the bottom. This text defines various details of our share.
+       [OrionShare]
+        path = /dev/sda2 /mnt/1
+        writeable=Yes
+        create mask=0777
+        directory mask=0777
+        public=no
+Run the following command to create the user. You will be prompted afterward to enter the password.
+        sudo smbpasswd -a OrionPi
