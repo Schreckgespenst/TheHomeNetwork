@@ -68,5 +68,11 @@ add username and password
 
 10. Get PiHole
 create a script file
-sudo nano pihole.sh
+      sudo nano pihole.sh
 paste the contents of pihole.sh into it
+      sudo chmod u+x pihole.sh
+execute the script
+       sudo ./pihole.sh
+ add to heimdall, go to http://192.168.1.10/admin/ and login
+ 
+ 
