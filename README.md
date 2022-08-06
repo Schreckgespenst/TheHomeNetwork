@@ -108,24 +108,29 @@ Save the file.
 12. Setting up samba
 We can install the packages that we require to setup Samba by running the following command.
 
-      sudo apt-get install samba samba-common-bin
-      sudo apt install -y samba samba-common-bin smbclient cifs-utils
+    sudo apt-get install samba samba-common-bin
+      
+    sudo apt install -y samba samba-common-bin smbclient cifs-utils
       
 Now we can share this folder using the Samba software. To do this, we need to modify the samba config file.
 The “smb.conf” configuration file is where you will store all your settings for your shares.
 We can begin modifying the config file by running the command below.
 
-      sudo nano /etc/samba/smb.conf
+    sudo nano /etc/samba/smb.conf
             
 Within this file, add the following to the bottom. This text defines various details of our share.
 
-       [OrionShare]
-        path = /dev/sda2 /mnt/1
-        writeable=Yes
-        create mask=0777
-        directory mask=0777
-        public=no
+    [OrionShare]
+    path = /dev/sda2 /mnt/1
+    writeable=Yes
+    create mask=0777
+    directory mask=0777
+    public=no
         
 Run the following command to create the user. You will be prompted afterward to enter the password.
 
-        sudo smbpasswd -a OrionPi
+    sudo smbpasswd -a OrionPi
+  
+ Finally, before we connect to our Raspberry Pi Samba share, we need to restart the samba service so that it loads in our configuration changes.
+
+    sudo systemctl restart smbd
