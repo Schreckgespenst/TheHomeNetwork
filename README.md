@@ -121,7 +121,7 @@ We can begin modifying the config file by running the command below.
 Within this file, add the following to the bottom. This text defines various details of our share.
 
     [OrionShare]
-    path = /dev/sda2 /mnt/1
+    path = /mnt/1
     writeable=Yes
     create mask=0777
     directory mask=0777
@@ -134,3 +134,5 @@ Run the following command to create the user. You will be prompted afterward to 
  Finally, before we connect to our Raspberry Pi Samba share, we need to restart the samba service so that it loads in our configuration changes.
 
     sudo systemctl restart smbd
+    
+  In Map Network Drive enter \\Orionraspi\OrionShare then the password to connect to the folder.
