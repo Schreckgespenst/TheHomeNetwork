@@ -108,7 +108,7 @@ The “smb.conf” configuration file is where you will store all your settings 
 We can begin modifying the config file by running the command below.
 
       sudo nano /etc/samba/smb.conf
-      sudo apt install -y samba samba-common-bin smbclient cisf-utils
+      sudo apt install -y samba samba-common-bin smbclient cifs-utils
       
 Within this file, add the following to the bottom. This text defines various details of our share.
        [OrionShare]
