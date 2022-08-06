@@ -4,27 +4,33 @@
 2. configure ssh
 3. ssh into your raspi
 4. Check for updates
-sudo apt-get update
-sudo apt-get upgrade
+
+        sudo apt-get update
+
+        sudo apt-get upgrade
 
 5. Get Network Manager
-sudo apt-get install network-manager
+
+        sudo apt-get install network-manager
+
 5.1 Turn off random mac generation
   To disable the MAC address randomization create the file
 
-sudo nano /etc/NetworkManager/conf.d/100-disable-wifi-mac-randomization.conf
+        sudo nano /etc/NetworkManager/conf.d/100-disable-wifi-mac-randomization.conf
 with the content:
 
-[connection]
-wifi.mac-address-randomization=1
- 
-[device]
-wifi.scan-rand-mac-address=no
+        [connection]
+        wifi.mac-address-randomization=1
+
+        [device]
+        wifi.scan-rand-mac-address=no
 
 ip/mac address can be checked by
-ip r | grep default
+
+    ip r | grep default
 or
-ifconfig
+
+    ifconfig
 
 6. set a static ip by dhcp binding
 (can also be done by raspi by editing the file:
@@ -101,21 +107,25 @@ Save the file.
 
 12. Setting up samba
 We can install the packages that we require to setup Samba by running the following command.
+
       sudo apt-get install samba samba-common-bin
+      sudo apt install -y samba samba-common-bin smbclient cifs-utils
       
 Now we can share this folder using the Samba software. To do this, we need to modify the samba config file.
 The “smb.conf” configuration file is where you will store all your settings for your shares.
 We can begin modifying the config file by running the command below.
 
       sudo nano /etc/samba/smb.conf
-      sudo apt install -y samba samba-common-bin smbclient cifs-utils
-      
+            
 Within this file, add the following to the bottom. This text defines various details of our share.
+
        [OrionShare]
         path = /dev/sda2 /mnt/1
         writeable=Yes
         create mask=0777
         directory mask=0777
         public=no
+        
 Run the following command to create the user. You will be prompted afterward to enter the password.
+
         sudo smbpasswd -a OrionPi
