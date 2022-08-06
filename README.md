@@ -65,3 +65,8 @@ add username and password
         --restart unless-stopped \
         linuxserver/heimdall
    Open a web browser and navigate to http://orionraspi.local:8006/
+
+10. Get PiHole
+create a script file
+sudo nano pihole.sh
+paste the contents of pihole.sh into it
