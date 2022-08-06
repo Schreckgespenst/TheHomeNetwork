@@ -39,5 +39,5 @@ static domain_name_servers=192.168.1.1
 curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 (this command alone may not work for raspi 4; check compatibility)
 Add user to docker group
-  sudo usermod -aG docker ${USER}
-  su - ${USER}
+sudo usermod -aG docker ${USER}
+su - ${USER}
