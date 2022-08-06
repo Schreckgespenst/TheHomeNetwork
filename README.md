@@ -41,3 +41,27 @@ curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 Add user to docker group
 sudo usermod -aG docker ${USER}
 su - ${USER}
+
+8. Get Portainer
+sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:linux-arm
+then go to the following in browser:
+http://OrionRaspi.local:9000
+add username and password
+
+9. Get Heimdall
+ # list current uid and gid, note these for later
+         id $user
+         # make a heimdall directory to mount in the container
+         mkdir ~/heimdall
+         # run the heimdall docker image
+         # replace PUID, GUID with the output of the id $user command above
+         docker run \
+        --name=heimdall \
+        -e PUID=1000 \
+        -e PGID=1000 \
+        -e TZ=Asia/Calcutta \
+        -p 8006:80 \
+        -v ~/heimdall:/config \
+        --restart unless-stopped \
+        linuxserver/heimdall
+   Open a web browser and navigate to http://orionraspi.local:8006/
