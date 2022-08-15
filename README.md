@@ -5,25 +5,25 @@
 3. ssh into your raspi
 4. Check for updates
 
-        sudo apt-get update
+       sudo apt-get update
 
-        sudo apt-get upgrade
+       sudo apt-get upgrade
 
 5. Get Network Manager
 
-        sudo apt-get install network-manager
+       sudo apt-get install network-manager
 
 5.1 Turn off random mac generation
   To disable the MAC address randomization create the file
 
-        sudo nano /etc/NetworkManager/conf.d/100-disable-wifi-mac-randomization.conf
+    sudo nano /etc/NetworkManager/conf.d/100-disable-wifi-mac-randomization.conf
 with the content:
 
-        [connection]
-        wifi.mac-address-randomization=1
+    [connection]
+    wifi.mac-address-randomization=1
 
-        [device]
-        wifi.scan-rand-mac-address=no
+    [device]
+    wifi.scan-rand-mac-address=no
 
 ip/mac address can be checked by
 
@@ -45,14 +45,19 @@ and adding this at the end:)
     static domain_name_servers=192.168.1.1 
 
 7. Install Docker
-curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
+
+       curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
+
 (this command alone may not work for raspi 4; check compatibility)
 Add user to docker group
-sudo usermod -aG docker ${USER}
-su - ${USER}
+
+    sudo usermod -aG docker ${USER}
+    su - ${USER}
 
 8. Get Portainer
-sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:linux-arm
+
+       sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:linux-arm
+
 then go to the following in browser:
 http://OrionRaspi.local:9000
 add username and password
@@ -77,11 +82,14 @@ add username and password
 
 10. Get PiHole
 create a script file
-      sudo nano pihole.sh
+
+    sudo nano pihole.sh
 paste the contents of pihole.sh into it
-      sudo chmod u+x pihole.sh
+
+    sudo chmod u+x pihole.sh
 execute the script
-       sudo ./pihole.sh
+
+    sudo ./pihole.sh
  add to heimdall, go to http://192.168.1.10/admin/ and login
  
 11. Mounting a disk
