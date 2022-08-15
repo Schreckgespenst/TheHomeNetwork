@@ -134,7 +134,7 @@ We can begin modifying the config file by running the command below.
 Within this file, add the following to the bottom. This text defines various details of our share.
 
     [OrionShare]
-    path = /mnt/1
+    path = /mnt/share
     writeable=Yes
     create mask=0777
     directory mask=0777
