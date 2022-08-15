@@ -34,13 +34,16 @@ or
 
 6. set a static ip by dhcp binding
 (can also be done by raspi by editing the file:
-sudo nano /etc/dhcpcd.conf
-and adding this at the end:
-                        interface eth0
-                        static ip_address=192.168.1.10
-                        static routers=192.168.1.1
-                        static domain_name_servers=192.168.1.1 
-)
+
+    sudo nano /etc/dhcpcd.conf
+
+and adding this at the end:)
+
+    interface eth0
+    static ip_address=192.168.1.10
+    static routers=192.168.1.1
+    static domain_name_servers=192.168.1.1 
+
 7. Install Docker
 curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 (this command alone may not work for raspi 4; check compatibility)
@@ -85,23 +88,23 @@ execute the script
 
 Create a directory in the /mnt directory:
 
-sudo mkdir /mnt/1
+    sudo mkdir /mnt/share
 
 We change the access rights to the directory. Only root and only read and write.
 
-sudo chmod -R 660 /mnt/1
+    sudo chmod -R 660 /mnt/share
 
 We mount:
 
-sudo mount /dev/sda2 /mnt/1
+    sudo mount /dev/sda2 /mnt/share
 
 To mount the disk automatically when the system boots, edit the /etc/fstab file. Open with any text editor, for example, nano:
 
-sudo nano /etc/fstab
+    sudo nano /etc/fstab
 
 At the very end of the file, insert the line:
 
-/dev/sda2 /mnt/1 ext4 defaults 0 0
+    /dev/sda2 /mnt/share ext4 defaults 0 0
 
 Save the file.
 
