@@ -17,7 +17,7 @@
   To disable the MAC address randomization create the file
 
     sudo nano /etc/NetworkManager/conf.d/100-disable-wifi-mac-randomization.conf
-with the content:
+  with the content:
 
     [connection]
     wifi.mac-address-randomization=1
@@ -56,7 +56,9 @@ Add user to docker group
 
 8. Get Portainer
 
-       sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:linux-arm
+       sudo docker pull portainer/portainer-ce
+       
+       sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
 
 then go to the following in browser:
 http://OrionRaspi.local:9000
