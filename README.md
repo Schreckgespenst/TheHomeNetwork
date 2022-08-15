@@ -36,10 +36,10 @@ or
 (can also be done by raspi by editing the file:
 sudo nano /etc/dhcpcd.conf
 and adding this at the end:
-interface eth0
-static ip_address=192.168.1.10
-static routers=192.168.1.1
-static domain_name_servers=192.168.1.1 
+                        interface eth0
+                        static ip_address=192.168.1.10
+                        static routers=192.168.1.1
+                        static domain_name_servers=192.168.1.1 
 )
 7. Install Docker
 curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
