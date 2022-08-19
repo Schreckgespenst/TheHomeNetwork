@@ -32,7 +32,7 @@ or
 
     ifconfig
 
-# 6. set a static ip by dhcp binding
+# 6. Set a Static IP by DHCP binding
 
 (can also be done by raspi by editing the file:
 
