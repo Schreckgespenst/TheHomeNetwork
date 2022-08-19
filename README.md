@@ -1,15 +1,15 @@
 # TheHomeNetwork
 
-1. Put the image on a sd card
-2. configure ssh
-3. ssh into your raspi
+1. Flash the SD card with the image of your preferred OS.
+2. Configure SSH
+3. Use PuTTY to SSH into your raspi
 4. Check for updates
 
        sudo apt-get update
 
        sudo apt-get upgrade
 
-5. Get Network Manager
+5. [Optional] Get Network Manager
 
        sudo apt-get install network-manager
 
@@ -130,8 +130,7 @@ Save the file.
 12. Setting up samba
 We can install the packages that we require to setup Samba by running the following command.
 
-    sudo apt-get install samba samba-common-bin
-      
+    sudo apt-get install samba samba-common-bin      
     sudo apt install -y samba samba-common-bin smbclient cifs-utils
       
 Now we can share this folder using the Samba software. To do this, we need to modify the samba config file.
