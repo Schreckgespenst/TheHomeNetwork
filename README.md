@@ -104,6 +104,12 @@ We change the access rights to the directory. Only root and only read and write.
 
     sudo chmod -R 660 /mnt/share
 
+We need first to find out the filesystem name for the drive we want to mount to our Raspberry Pi.
+To do this, we will be making use of the df command
+
+    df -h
+
+df stands for “disk-free”, and is typically used to show the available disk space for file systems, but it also displays the name of the filesystem.
 We mount:
 
     sudo mount /dev/sda2 /mnt/share
