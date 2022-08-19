@@ -5,8 +5,8 @@
 3. Use PuTTY to SSH into your raspi
 4. Check for updates
 
-sudo apt update
-sudo apt full-upgrade
+       sudo apt update
+       sudo apt full-upgrade
 
 # 5. [Optional] Get Network Manager
 
