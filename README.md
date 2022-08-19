@@ -110,6 +110,9 @@ To do this, we will be making use of the df command
     df -h
 
 df stands for “disk-free”, and is typically used to show the available disk space for file systems, but it also displays the name of the filesystem.
+or use the following command:
+
+    sudo fdisk -l
 We mount:
 
     sudo mount /dev/sda2 /mnt/share
