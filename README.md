@@ -9,7 +9,7 @@
 
        sudo apt-get upgrade
 
-5. [Optional] Get Network Manager
+# 5. [Optional] Get Network Manager
 
        sudo apt-get install network-manager
 
@@ -32,7 +32,8 @@ or
 
     ifconfig
 
-6. set a static ip by dhcp binding
+# 6. set a static ip by dhcp binding
+
 (can also be done by raspi by editing the file:
 
     sudo nano /etc/dhcpcd.conf
@@ -44,7 +45,7 @@ and adding this at the end:)
     static routers=192.168.1.1
     static domain_name_servers=192.168.1.1 
 
-7. Install Docker
+# 7. Install Docker
 
        curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 
@@ -54,7 +55,7 @@ Add user to docker group
     sudo usermod -aG docker ${USER}
     su - ${USER}
 
-8. Get Portainer
+# 8. Get Portainer
 
        sudo docker pull portainer/portainer-ce
        
@@ -64,8 +65,9 @@ then go to the following in browser:
 http://OrionRaspi.local:9000
 add username and password
 
-9. Get Heimdall
- # list current uid and gid, note these for later
+# 9. Get Heimdall
+  list current uid and gid, note these for later
+  
          id $user
          # make a heimdall directory to mount in the container
          mkdir ~/heimdall
@@ -82,7 +84,7 @@ add username and password
         linuxserver/heimdall
    Open a web browser and navigate to http://orionraspi.local:8006/
 
-10. Get PiHole
+# 10. Get PiHole
 create a script file
 
     sudo nano pihole.sh
@@ -94,7 +96,7 @@ execute the script
     sudo ./pihole.sh
  add to heimdall, go to http://192.168.1.10/admin/ and login
  
-11. Mounting a disk
+# 11. Mounting a disk
 
 Create a directory in the /mnt directory:
 
