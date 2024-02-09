@@ -157,5 +157,5 @@ Run the following command to create the user. You will be prompted afterward to 
 
     sudo systemctl restart smbd
     
-  In Map Network Drive enter \\Orionraspi\OrionShare then the password to connect to the folder.
+  In Map Network Drive enter "\\Orionraspi\OrionShare" then the password to connect to the folder.
 ![Network Illustration](https://user-images.githubusercontent.com/51400556/187031039-d88031cc-2396-4dd8-add1-3172fac189c1.png)
