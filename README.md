@@ -37,7 +37,7 @@ or
 
     sudo nano /etc/dhcpcd.conf
 
-and adding this at the end:)
+and adding this at the end. Now save the file by pressing CTRL + X then Y followed by ENTER.
 
     interface eth0
     static ip_address=192.168.1.10
